@@ -2,9 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\courseproject",
-    "\\courseproject\\templates",
+    "\\courseproject\\courseproject",
+    "\\courseproject\\course_app",
+    "\\courseproject\\course_app\\static\\css",
     "\\courseproject\\templates\\course_app"
   ],
-  "SelectedNode": "\\courseproject\\templates\\course_app\\index.html",
+  "SelectedNode": "\\courseproject\\course_app\\views.py",
   "PreviewInSolutionExplorer": false
 }
