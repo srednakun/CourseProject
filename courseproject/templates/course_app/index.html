@@ -6,37 +6,32 @@
 <html>
 <head>
 	<title>Course Project</title>
-	<link rel="stylesheet" href="{% static 'css/styles.css'%}" />
+	
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css'%}" />
 </head>
 <body>
-	<!--name, put name inside double curly braces to invoke binding-->
-	<!--image of juice-->
-	<!--
-	<img src="{% static 'images/juice.jpg' %}" alt=" picture of juice in glass"
-	-->
-	<h2>Here are all the courses</h2>
+	<div class="container">
+		<h2>Here are all the courses</h2>
 
-	<div>
-		{% if course %}
-		<table>
-			<thead>
-				<th>Course ID</th>
-				<th>Title</th>
-				<th>Description</th>
-			</thead>
-			{% for c in course %}
-				<tr>
-					<td>{{c.course_id}}</td>
-					<td>{{c.course_title}}</td>
-					<td>{{c.course_description}}</td>
-					
-					<td><a href="{% url 'details' %}?pk={{c.course_id}} "> Read More</a>
-				</tr>
-			{% endfor %}
-		</table>
-		{% else %}
-			<p>No Course records found.</p>
-		{% endif %}
+			{% if course %}
+				
+				{% for c in course %}
+					<div class="card mt-3">
+						<h5 class="card-header">{{c.course_id}} {{c.course_title}}</h5>
+						<div class="card-body">
+							<p class="card-text red">{{c.course_description}}</p>
+							<a href="{% url 'details' %}?pk={{c.course_id}}" class="btn btn-primary"> Read More</a>
+						</div>
+					</div>							
+				{% endfor %}
+				
+			{% else %}
+
+				<p>No Course records found.</p>
+
+			{% endif %}
 	</div>
+
 </body>
 </html>
